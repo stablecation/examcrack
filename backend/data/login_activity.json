@@ -1,0 +1,268 @@
+[
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:46:36.860940+00:00"
+  },
+  {
+    "event": "register",
+    "identifier": "normaluser9@test.com",
+    "user_id": "6aa4227681ff04ce913f1e14",
+    "success": true,
+    "timestamp": "2026-09-11T15:47:02.656366+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:47:03.483898+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:48:43.144596+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:50:06.016265+00:00"
+  },
+  {
+    "event": "register",
+    "identifier": "test_user_1789141806@example.com",
+    "user_id": "6aa4232ea94e7d6906836f6b",
+    "success": true,
+    "timestamp": "2026-09-11T15:50:06.984319+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "test_user_1789141806@example.com",
+    "user_id": "6aa4232ea94e7d6906836f6b",
+    "success": true,
+    "timestamp": "2026-09-11T15:50:09.338713+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:50:17.803902+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:50:30.313894+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:50:46.744035+00:00"
+  },
+  {
+    "event": "register",
+    "identifier": "test_check_1789141859@example.com",
+    "user_id": "6aa42364a94e7d6906836f6c",
+    "success": true,
+    "timestamp": "2026-09-11T15:51:00.856501+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:51:26.827667+00:00"
+  },
+  {
+    "event": "register",
+    "identifier": "test_user_1789141887@example.com",
+    "user_id": "6aa4237feb8c6cd5594d347b",
+    "success": true,
+    "timestamp": "2026-09-11T15:51:28.004629+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "test_user_1789141887@example.com",
+    "user_id": "6aa4237feb8c6cd5594d347b",
+    "success": true,
+    "timestamp": "2026-09-11T15:51:30.327789+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:51:58.843294+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:53:26.333372+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:55:33.767996+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": null,
+    "success": false,
+    "timestamp": "2026-09-11T15:57:46.652502+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa421da1935a7ef2f0a3475",
+    "success": true,
+    "timestamp": "2026-09-11T15:57:50.208507+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T17:40:08.537519+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T17:40:08.993933+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T17:42:36.178252+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T17:46:41.749499+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T17:46:54.846356+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T17:47:12.686804+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T17:48:00.463107+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T17:57:02.704691+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T17:57:28.638110+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T18:00:37.645064+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T18:06:22.713624+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T18:07:36.592900+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T18:12:20.840668+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T18:13:36.719042+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T18:15:05.809502+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T18:22:26.843733+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T18:25:54.145950+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "admin@studylocus.com",
+    "user_id": "6aa43ce8e4315d5f764e852c",
+    "success": true,
+    "timestamp": "2026-09-11T18:26:48.406209+00:00"
+  },
+  {
+    "event": "login",
+    "identifier": "deep",
+    "user_id": "6aa43ce8e4315d5f764e852d",
+    "success": true,
+    "timestamp": "2026-09-11T18:35:24.841454+00:00"
+  }
+]

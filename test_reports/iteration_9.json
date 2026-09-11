@@ -1,0 +1,35 @@
+{
+  "summary": "Frontend-only verification of two UI layout bug fixes on Dashboard. Logged in as admin@studylocus.com/admin123 at the preview URL, then measured Journey card (default size) and Countdown card (after shrinking via .react-resizable-handle drag). Both bug fixes are working as intended.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "bug_verification": {
+    "bug1_journey_default_size": {
+      "status": "FIXED",
+      "evidence": "At default card size (grid height 222px), legend row bottom=255.375 and tip text bottom=278.375 both fall within the grid item bounds (top=113.19, bottom=335.19). legendVisible=true, tipVisible=true. The heatmap grid, legend ('Upcoming','Today','Test','Exam') and tip 'Tip: click any day to plan a test on it.' are all fully rendered without clipping. .graph-container has overflow-y:auto (min-height:0) so it scrolls internally rather than pushing content out."
+    },
+    "bug2_countdown_scales": {
+      "status": "FIXED",
+      "evidence": "Initial font-size of .countdown-num was 37.13px in default card (432x222). After shrinking the card to ~320x174 by dragging .react-resizable-handle inward, font-size scaled down to 24.65px. All three numbers (countdown-days=131, countdown-hours=05, countdown-minutes=52) remained fully inside the .countdown-wrap bounds with clipped=false. CSS container-query sizing (clamp(1.3rem, 26cqmin, 4.2rem)) is working correctly."
+    },
+    "regression_login_and_dashboard": {
+      "status": "PASS",
+      "evidence": "Login with admin@studylocus.com/admin123 succeeded. Dashboard rendered all 9 default cards (Countdown, Journey, My Tasks, Study Log, Welcome, Quote, Mock Test Progress, Test Planner, Daily Agenda). No page-breaking console errors."
+    }
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Non-blocking console warning from react-grid-layout: 'prop minHeight larger than item height/maxHeight'. This is likely triggered by collapsed cards (h=2, maxH=2) whose minH from CARD_META (e.g., minH:4) isn't overridden until withCollapse runs. withCollapse does set minH:1 for collapsed items, so the warning most likely fires during initial layout hydration or transient state. Not caused by the two fixes; consider addressing in a follow-up."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (not tested)", "frontend": "100%"},
+  "test_credentials": "admin@studylocus.com / admin123",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Both Journey card default-size layout fix and Countdown card container-query font scaling fix are verified working on preview URL. If regressions need re-check, log in as admin and measure (a) legendRect.bottom & tipRect.bottom vs journey grid-item bottom, (b) countdown-days font-size before/after dragging .react-resizable-handle inward on the Countdown react-grid-item — font should shrink and numbers must not overflow .countdown-wrap."
+}

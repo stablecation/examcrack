@@ -1,0 +1,38 @@
+{
+  "summary": "Full test of admin login + local JSON persistence + admin export pipeline. Backend: 11/11 pytest cases passed (deep admin login, /auth/me, export-log RBAC 401/403/200, export-github repo validation, short-PAT validation, normal-user 403, invalid-PAT graceful 502, users.json + login_activity.json persistence). Frontend: verified via Playwright — deep/deep8670 logs in from the standard /login using 'auth-email' textbox, dashboard renders, Navbar exposes admin-btn, clicking it opens admin-panel with all required data-testids (admin-repo-input, admin-pat-input, admin-summary-input, admin-export-btn, admin-users-count showing '10 registered account(s) — mirrored locally to backend/data/users.json'). Client-side validation surfaces admin-export-error with 'Repository must be in the form owner/name' for a bad repo. admin-export-history is conditionally rendered (only when audits exist) — expected. Real GitHub push was NOT attempted per instruction; verified the pipeline reaches api.github.com and returns clean 502 'Export failed: GitHub token unauthorized (401) — check the PAT and its repo scope' when the PAT is well-formed but invalid. Local persistence confirmed: /app/backend/data/users.json contains registered users with $2b bcrypt hashes and /app/backend/data/login_activity.json appends register/login events (both success and failure).",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/admin/export-github", "issue": "When backend returns 502 with JSON detail, the k8s ingress substitutes an HTML 'Bad gateway' page over the public URL (backend body is lost). Status code is preserved; direct localhost:8001 hit returns proper JSON. Not caused by app code — infra behavior — but worth noting for users who will see a generic gateway page instead of the friendly '401 unauthorized — check PAT' message on failed exports."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_admin_features.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Optional: also render/expose backend JSON error body when ingress rewrites 5xx to HTML — e.g. return a 400/422 for known-bad tokens so ingress does not substitute an HTML gateway page (backend already returns clean 502 JSON, but the ingress may hide it from the browser UI).",
+    "Optional testability nit: Login.js exposes 'auth-email/auth-password/auth-submit/auth-switch/auth-name' (not the 'login-email-input' etc names referenced in some review docs). Both are fine; docs could be aligned."
+  ],
+  "critical_code_review_comments": [
+    "server.py is ~585 lines and still monolithic — consider splitting auth/settings/tasks/logs/tests/scores/admin into routers as it continues to grow.",
+    "log_activity() is synchronous file I/O called inside async request handlers; fine at low traffic but should be moved to asyncio.to_thread if activity volume grows.",
+    "sync_users_file() rewrites the entire users.json on every register — O(N) per write; acceptable while N is small, but move to append/mongo-only if user base grows.",
+    "_export_sync copies APP_ROOT (which includes /app/backend/data/*.json containing bcrypt hashes) into the exported repo. Consider adding data/ to the ignore_patterns unless the user explicitly wants password hashes pushed to GitHub."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_admin_features.py"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "deep / deep8670 (admin shortcut), admin@studylocus.com / admin123 (email admin). Normal users created dynamically as TEST_user_*@example.com / pass1234.",
+  "seed_data_creation": "Registered a fresh test user via API to validate users.json/login_activity.json writes; the user is left in Mongo + JSON files as test artifact (TEST_ prefix).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All admin/export/persistence backend + frontend flows are green. Real GitHub push (happy path) is intentionally UNTESTED — needs a real PAT and will be user-verified manually. If retesting, use /app/backend/tests/test_admin_features.py which is self-contained pytest. Note that public ingress rewrites backend 502 bodies to HTML, so the invalid-PAT test only asserts the status code from the public URL; hit http://localhost:8001 directly to see the JSON detail.",
+  "rca of the issue": "N/A — no bugs blocking. Two initial test failures were test-side issues: (a) I compared registered email case-sensitively while backend lowercases before persisting; (b) I tried to parse ingress-substituted HTML as JSON. Both fixed in test_admin_features.py."
+}

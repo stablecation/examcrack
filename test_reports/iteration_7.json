@@ -1,0 +1,20 @@
+{
+  "summary": "Verified Journey card tooltip positioning fix. Tooltip is rendered via createPortal to document.body (parent=BODY confirmed), and appears immediately adjacent (delta x=+20, y=+19.6 from cell top-left) to the hovered cell for both a scheduled test day and an empty day. Correct content: 'Wed Sep 16 2026 · Mock JEE Test 1' on the blue cell, and 'Mon Sep 21 2026 · No test scheduled · click to add' on an empty cell. Horizontal flow of journey days confirmed (grid-auto-flow: row; cells share y and increase x).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "test_credentials": "admin@studylocus.com / admin123",
+  "seed_data_creation": "None (used existing 'Mock JEE Test 1' near today+5)",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Journey tooltip is portaled to body and positioned via fixed left=hover.x+14, top=hover.y+14. Verified across scheduled and empty cells. Horizontal flow intact.",
+  "rca of the issue": "Original issue: tooltip rendered inside a react-grid-layout item whose CSS transform breaks position:fixed containing block, causing tooltip to appear at bottom of card. Fix: createPortal(tooltip, document.body) so fixed positioning is relative to the viewport. Confirmed by inspecting tooltip.parentElement.tagName === 'BODY' and bounding box proximity to the hovered cell."
+}

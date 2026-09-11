@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #010409;
+  --bg-color-2: #0d1117;
+  --card-bg-color: rgba(22, 27, 34, 0.55);
+  --border-color: #30363d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --accent-color: #58a6ff;
+  --accent-hover: #4493f8;
+  --accent-glow: 0 0 15px rgba(88, 166, 255, 0.25);
+  --day-past-color: #21262d;
+  --day-future-color: #0e4429;
+  --day-today-color: var(--accent-color);
+  --day-exam-color: #9e2a2b;
+  --day-test-color: #1f6feb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle at 15% 0%, rgba(88, 166, 255, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(63, 185, 80, 0.05), transparent 45%);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 6px;
+}
+::selection {
+  background: var(--accent-color);
+  color: #fff;
+}
